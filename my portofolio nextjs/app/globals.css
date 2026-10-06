@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@source "../components/**/*.{ts,tsx}";
+@source "./**/*.{ts,tsx}";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-secondary: #151515;
+  --color-accent: #bfdbfe;
+  --color-accent-muted: #60a5fa;
+  --color-surface: #050505;
+  --color-border: #333333;
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body {
+    @apply bg-surface font-sans text-accent antialiased;
+    background-image: radial-gradient(ellipse at 82% 12%, rgb(59 130 246 / 9%), transparent 34rem), linear-gradient(180deg, #080808 0%, #050505 100%);
+    background-size: auto, auto;
+  }
+  ::selection { @apply bg-primary text-surface; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-primary; }
+}
+
+@layer components {
+  .container-portfolio { @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8; }
+  .section-padding { @apply py-20 sm:py-24 lg:py-28; }
+  .section-label { @apply mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-primary; }
+  .section-title { @apply text-3xl font-extrabold tracking-tight text-accent sm:text-4xl lg:text-[2.75rem] lg:leading-tight; }
+  .section-subtitle { @apply mt-4 max-w-2xl text-base leading-relaxed text-accent-muted sm:text-lg; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-primary/60 bg-secondary px-6 py-3.5 text-sm font-semibold text-primary shadow-sm transition-all duration-300 ease-[var(--ease-smooth)] hover:-translate-y-0.5 hover:bg-primary/10 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:translate-y-0; }
+  .btn-secondary { @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-secondary px-6 py-3.5 text-sm font-semibold text-accent transition-all duration-300 ease-[var(--ease-smooth)] hover:-translate-y-0.5 hover:border-accent/20 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:translate-y-0; }
+  .btn-ghost { @apply inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold text-accent transition-all duration-300 ease-[var(--ease-smooth)] hover:bg-accent/5 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary; }
+  .card { @apply rounded-3xl border border-border bg-secondary transition-all duration-300 ease-[var(--ease-smooth)]; }
+  .card-lift { @apply rounded-3xl border border-border bg-secondary transition-all duration-300 ease-[var(--ease-smooth)] hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.65)]; }
+  .glass-accent { @apply rounded-2xl border border-border bg-secondary/80 shadow-sm backdrop-blur-md; }
+  .skill-level { @apply inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary; }
+  .nav-link { @apply relative text-sm font-medium text-accent-muted transition-colors duration-200 hover:text-accent; }
+  .form-input { @apply w-full rounded-2xl border border-border bg-secondary px-4 py-3.5 text-sm text-accent placeholder:text-accent-muted/60 transition-all duration-200 hover:border-accent/20 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10; }
+  .form-label { @apply mb-2 block text-sm font-medium text-accent; }
+}
+
+.nav-shell { border: 1px solid rgb(51 51 51 / 85%); background: rgb(5 5 5 / 88%); backdrop-filter: blur(18px); transition: border-color .3s ease, box-shadow .3s ease; }
+.nav-shell:hover { border-color: rgb(59 130 246 / 45%); box-shadow: 0 8px 36px rgb(0 0 0 / 40%); }
+.page-enter { animation: pageFadeIn .45s var(--ease-smooth) both; }
+@keyframes pageFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes float-slow { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
+@keyframes float-delayed { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-8px) rotate(-2deg); } }
+.animate-float { animation: float-slow 6s ease-in-out infinite; }
+.animate-float-delayed { animation: float-delayed 7s ease-in-out infinite 1s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none" role="img" aria-label="Project image placeholder">
+  <rect width="800" height="600" fill="#F8F9FA"/>
+  <rect x="40" y="40" width="720" height="520" rx="24" fill="#FFFFFF" stroke="#E8EAED"/>
+  <rect x="120" y="140" width="200" height="160" rx="20" fill="#A1A1AA" fill-opacity="0.25"/>
+  <circle cx="520" cy="220" r="72" fill="#2D2D2D" fill-opacity="0.08"/>
+  <rect x="120" y="360" width="560" height="16" rx="8" fill="#2D2D2D" fill-opacity="0.08"/>
+  <rect x="120" y="400" width="420" height="16" rx="8" fill="#2D2D2D" fill-opacity="0.06"/>
+  <text x="400" y="540" text-anchor="middle" fill="#5A5A5A" font-family="Arial, sans-serif" font-size="18">Replace with your project image</text>
+</svg>
